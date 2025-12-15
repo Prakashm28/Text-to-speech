@@ -50,7 +50,8 @@ graph TD
     DocGen --> AnalysisReport
     DocGen --> Diagrams
 ` ``` `
-```mermaid
+
+
 graph TD
 
     subgraph UserInput
