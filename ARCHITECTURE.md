@@ -1,3 +1,15 @@
+# System Architecture — Piper Personalization Project
+
+This document describes the architecture for:
+
+- **Task 1 — Dataset Analysis**
+- **Task 2 — Personalization Engine**
+
+---
+
+# 📌 Task 1 — Dataset Analysis Architecture
+
+```mermaid
 graph TD
 
     %% DATA SOURCES
