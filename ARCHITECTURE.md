@@ -80,3 +80,22 @@ graph TD
     FineTune --> VoiceProfile
     FineTune --> Model
 ```
+
+## 📌 Task 3 — Extended System Architecture (Piper + Personalization)
+
+```mermaid
+graph TD
+
+    UserText["📝 Input Text"] --> PiperCore["🗣️ Piper TTS Core"]
+
+    UserAudio["🎤 User Audio Samples"] --> Preprocess["Audio Preprocessing"]
+    Preprocess --> FeatureExtractor["Feature Extraction"]
+    FeatureExtractor --> VoiceProfile["Personalized Voice Profile"]
+
+    VoiceProfile --> FineTuning["Model Fine-Tuning"]
+    FineTuning --> PersonalizedModel["Personalized Piper Model"]
+
+    PiperCore --> SynthesisAdapter["Synthesis Adapter"]
+    PersonalizedModel --> SynthesisAdapter
+    SynthesisAdapter --> AudioOut["🔊 Synthesized Speech Output"]
+ ```
