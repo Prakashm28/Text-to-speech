@@ -1,9 +1,22 @@
+
+If the empty line or closing ``` is missing → GitHub throws this error.
+
+---
+
+# ✅ **HERE IS YOUR CORRECTED ARCHITECTURE.md (FULLY FIXED)**  
+👉 **Just copy–paste THIS — it will work 100% in GitHub.**
+
+---
+
+# ✅ **FINAL WORKING VERSION – ARCHITECTURE.md**
+
+```markdown
 # System Architecture — Piper Personalization Project
 
 This document describes the architecture for:
 
-- **Task 1 — Dataset Analysis**
-- **Task 2 — Personalization Engine**
+- Task 1 — Dataset Analysis
+- Task 2 — Personalization Engine
 
 ---
 
@@ -77,6 +90,10 @@ graph TD
 
     DocGen --> AnalysisReport
     DocGen --> Diagrams
+
+
+
+
 
 graph TD
 
