@@ -1,13 +1,3 @@
-# System Architecture — Piper Personalization Project
-
-This document describes the architecture for:
-- Task 1 — Dataset Analysis
-- Task 2 — Personalization Engine
-
----
-
-## Task 1 — Dataset Analysis Architecture
-
 ```mermaid
 graph TD
 
@@ -49,9 +39,9 @@ graph TD
 
     DocGen --> AnalysisReport
     DocGen --> Diagrams
-` ``` `
+```
 
-
+```mermaid
 graph TD
 
     subgraph UserInput
@@ -87,3 +77,4 @@ graph TD
     Profile --> FineTune
     FineTune --> VoiceProfile
     FineTune --> Model
+```
