@@ -7,61 +7,37 @@ This document describes the architecture for:
 
 ---
 
-# 📌 Task 1 — Dataset Analysis Architecture
+## 📌 Task 1 — Dataset Analysis Architecture
 
 ```mermaid
 graph TD
 
     %% DATA SOURCES
     subgraph "Datasets"
-        LJSpeech["📁 LJSpeech Dataset"]
-        VCTK["📁 VCTK Dataset"]
-        LibriTTS["📁 LibriTTS Dataset"]
-        HiFi["📁 Hi-Fi Multi-Speaker"]
-        HUI["📁 HUI-Audio-Corpus-German"]
-        CommonVoice["📁 Mozilla Common Voice"]
+        LJSpeech["LJSpeech Dataset"]
+        VCTK["VCTK Dataset"]
+        LibriTTS["LibriTTS Dataset"]
+        HiFi["Hi-Fi Multi-Speaker"]
+        HUI["HUI-Audio-Corpus-German"]
+        CommonVoice["Mozilla Common Voice"]
     end
 
     %% PIPELINE
     subgraph "Dataset Analysis Pipeline"
-        Loader["📥 Dataset Loader
-        - Load metadata
-        - Load audio/text pairs"]
-
-        Preprocess["🧹 Preprocessing
-        - Noise reduction
-        - Normalization
-        - Silence trimming
-        - Resampling"]
-
-        FeatureExtract["🎛️ Feature Extraction
-        - Prosodic features (F0, energy)
-        - Speaking rate
-        - Emotion cues
-        - Timbre & pitch"]
-
-        QualityAnalyzer["🔎 Quality Analyzer
-        - SNR
-        - Clarity
-        - Distortion
-        - Accent detection"]
-
-        Mapper["🗺️ Voice Characteristics Mapping
-        - Dataset → Expected TTS voice profile"]
-
-        DocGen["📄 Documentation Generator
-        - Dataset report
-        - Feature charts
-        - Mermaid diagrams"]
+        Loader["Dataset Loader"]
+        Preprocess["Audio Preprocessing"]
+        FeatureExtract["Feature Extraction"]
+        QualityAnalyzer["Quality Analyzer"]
+        Mapper["Voice Characteristics Mapping"]
+        DocGen["Documentation Generator"]
     end
 
     %% OUTPUT
     subgraph "Outputs"
-        AnalysisReport["📘 DATASET_ANALYSIS.md"]
-        Diagrams["🖼️ Mermaid Diagrams"]
+        AnalysisReport["DATASET_ANALYSIS.md"]
+        Diagrams["Mermaid Diagrams"]
     end
 
-    %% CONNECTIONS
     LJSpeech --> Loader
     VCTK --> Loader
     LibriTTS --> Loader
@@ -77,3 +53,40 @@ graph TD
 
     DocGen --> AnalysisReport
     DocGen --> Diagrams
+
+
+graph TD
+
+    subgraph UserInput
+        Audio["User Audio"]
+        Metadata["User Metadata"]
+    end
+
+    subgraph PersonalizationEngine
+        Preprocessor["Audio Preprocessor"]
+        SpeakingPattern["Speaking Pattern Analyzer"]
+        Prosody["Stress & Pitch Model"]
+        Emotion["Emotion Detector"]
+        Profile["Voice Profile Builder"]
+        FineTune["Model Fine-Tuning"]
+    end
+
+    subgraph Output
+        VoiceProfile["personalized_voice_profile.json"]
+        Model["Personalized Piper TTS Model"]
+    end
+
+    Audio --> Preprocessor
+    Metadata --> Preprocessor
+
+    Preprocessor --> SpeakingPattern
+    Preprocessor --> Prosody
+    Preprocessor --> Emotion
+
+    SpeakingPattern --> Profile
+    Prosody --> Profile
+    Emotion --> Profile
+
+    Profile --> FineTune
+    FineTune --> VoiceProfile
+    FineTune --> Model
