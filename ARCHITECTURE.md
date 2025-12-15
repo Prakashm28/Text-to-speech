@@ -49,8 +49,8 @@ graph TD
 
     DocGen --> AnalysisReport
     DocGen --> Diagrams
-
-
+` ``` `
+```mermaid
 graph TD
 
     subgraph UserInput
@@ -86,3 +86,4 @@ graph TD
     Profile --> FineTune
     FineTune --> VoiceProfile
     FineTune --> Model
+` ``` `
