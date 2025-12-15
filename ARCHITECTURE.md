@@ -1,3 +1,4 @@
+## Task 1 — Dataset Analysis Architecture
 ```mermaid
 graph TD
 
@@ -41,6 +42,7 @@ graph TD
     DocGen --> Diagrams
 ```
 
+## Task 1 — Personalization Engine Architecture
 ```mermaid
 graph TD
 
